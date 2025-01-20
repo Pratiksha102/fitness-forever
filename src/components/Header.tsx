@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className="border-b bg-white">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">My App</h1>
+        <h1 className="text-xl font-bold">Fitness Forever</h1>
         <NavigationMenu>
           <a href="/" className="hover:underline px-3 py-2">
             Home
