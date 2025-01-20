@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+:root {
+  --header-bg-color: #ffffff; /* Customize header background */
+  --header-text-color: #1a1a1a; /* Customize header text color */
+}
+
+/* Styling for the header */
+header {
+  @apply bg-white text-gray-800 shadow-md;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+header .logo {
+  @apply text-xl font-bold text-blue-600;
+}
+
+header nav {
+  @apply flex gap-4 items-center;
+}
+
+header nav a {
+  @apply text-gray-600 hover:text-blue-500 transition-colors;
+}
+
+header nav a.active {
+  @apply text-blue-600 font-semibold;
+}
