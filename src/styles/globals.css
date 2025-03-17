@@ -31,3 +31,15 @@ header nav a {
 header nav a.active {
   @apply text-blue-600 font-semibold;
 }
+
+.swiper-button-prev {
+  color: #ffffff !important;
+}
+
+.swiper-button-next {
+  color: #ffffff !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffffff !important;
+}

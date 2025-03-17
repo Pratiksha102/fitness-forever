@@ -51,7 +51,7 @@ export default function Home() {
 
           {/* Slide 3 */}
           <SwiperSlide>
-            <div className="relative h-full w-full bg-red-700 flex items-center justify-center">
+            <div className="relative h-full w-full bg-black-700 flex items-center justify-center">
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-10"></div>
               <h1 className="text-white text-3xl font-bold z-20 relative">Join the Community</h1>
               <img
