@@ -6,6 +6,7 @@ import HeroSlider from "@/components/HeroSlider";
 import About from "@/components/About";
 import Plans from "@/components/Plans";
 import ClientReviews from "@/components/ClientReviews";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <About/>
       <Plans/>
       <ClientReviews/>
+      <Footer/>
       </section>
     </div>
   );
