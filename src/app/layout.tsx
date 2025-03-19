@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <SessionProvider>
     <html lang="en">
-      <body className="font-sans bg-background text-foreground antialiased">
+      <body className="font-sans bg-black text-foreground antialiased">
         <Header />
         <main className="container mx-auto px-4 py-8  bg-black">{children}</main>
         <Footer />
