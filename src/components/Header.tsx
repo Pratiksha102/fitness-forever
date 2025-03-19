@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function Header() {
   const { data: session } = useSession();
+  console.log(session, "session info");
 
   return (
     <header className="border-b bg-black border-gray-700">
@@ -18,6 +19,7 @@ export function Header() {
                 src={session.user.image}
                 alt="Profile"
                 className="w-10 h-10 rounded-full"
+                onError={(e) => (e.currentTarget.style.display = "none")}
               />
             )}
             <span className="text-sm text-white">{session.user?.name}</span>
