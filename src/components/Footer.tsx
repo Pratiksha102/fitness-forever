@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-      <footer className="w-full bg-transparent backdrop-blur-xl p-2 rounded-t-lg shadow-sm border-t border-white/10 flex flex-col items-center text-gray-300">
+      <footer className="w-full bg-black backdrop-blur-xl p-2 rounded-t-lg shadow-sm border-t border-white/10 flex flex-col items-center text-gray-300">
         <p className="text-xs font-light tracking-wide">Designed & Developed by Pratiksha 💛</p>
         <div className="flex gap-3 mt-1 text-[10px]">
           <a href="#" className="hover:text-white transition duration-300 ease-in-out">Privacy</a>

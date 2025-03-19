@@ -6,17 +6,15 @@ import HeroSlider from "@/components/HeroSlider";
 import About from "@/components/About";
 import Plans from "@/components/Plans";
 import ClientReviews from "@/components/ClientReviews";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <div className="min-h-screen font-sans bg-background text-foreground">
       <section className="relative mb-16">
-      <HeroSlider />
-      <About/>
-      <Plans/>
-      <ClientReviews/>
-      <Footer/>
+        <HeroSlider />
+        <About />
+        <Plans />
+        <ClientReviews />
       </section>
     </div>
   );
