@@ -1,14 +1,18 @@
 "use client";
+
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useSession, signIn } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabaseClient"; // Import Supabase client
 
 const planDetails = {
   "3-month": {
     name: "3-Month Plan",
     price: 1000,
     desc: "Kickstart your fitness journey with our short-term plan.",
-    image: "/images/hero-slide-3.jpg", // Add actual image paths
+    image: "/images/hero-slide-3.jpg",
     features: [
       "Access to gym",
       "Personalized workout plan",
@@ -42,14 +46,58 @@ const planDetails = {
 export default function PlanDetail() {
   const params = useParams();
   const router = useRouter();
+  const { data: session } = useSession();
+  const [loading, setLoading] = useState(false);
+  const [userExists, setUserExists] = useState(false);
+
   const plan = planDetails[params.id as keyof typeof planDetails];
+
+  useEffect(() => {
+    const checkUserInDatabase = async () => {
+      if (!session?.user?.email) return;
+
+      const { data, error } = await supabase
+        .from("users")
+        .select("id")
+        .eq("email", session.user.email)
+        .single();
+
+      if (error) {
+        console.error("Error checking user:", error);
+      }
+
+      console.log("get user from databasee",data)
+
+      setUserExists(!!data);
+    };
+
+    checkUserInDatabase();
+  }, [session]);
+
+  const handleBuyNow = async () => {
+    if (!session) {
+      alert("Please sign in with Google to proceed.");
+      signIn("google");
+      return;
+    }
+
+    if (!userExists) {
+      alert("User not found in database. Please sign in again.");
+      return;
+    }
+
+    setLoading(true);
+
+    // Redirect to payments page
+    router.push(`/payments/plan=${params.id}`);
+  };
 
   if (!plan) {
     return <p className="text-white text-center">Plan not found.</p>;
   }
 
   return (
-    <div className=" max-h-screen flex flex-col md:flex-row items-center justify-center bg-black text-white p-8">
+    <div className="max-h-screen flex flex-col md:flex-row items-center justify-center bg-black text-white p-8">
       {/* Left - Image */}
       <div className="md:w-1/2 flex justify-center">
         <Image
@@ -80,8 +128,14 @@ export default function PlanDetail() {
         </span>
 
         {/* Buy Now Button */}
-        <button className="bg-yellow-400 text-black font-medium py-2 px-6 rounded text-sm hover:bg-yellow-500 transition mt-4 inline-block w-[150px]">
-          Buy Now
+        <button
+          onClick={handleBuyNow}
+          className={`bg-yellow-400 text-black font-medium py-2 px-6 rounded text-sm hover:bg-yellow-500 transition mt-4 inline-block w-[150px] ${
+            loading ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={loading}
+        >
+          {loading ? "Processing..." : "Buy Now"}
         </button>
       </div>
     </div>

@@ -57,7 +57,7 @@ export default function ClientReviews() {
   }, []);
 
   return (
-    <section className="min-h-screen bg-black text-white flex flex-col items-center p-8 py-16 relative overflow-hidden">
+    <section className=" bg-black text-white flex flex-col items-center p-8 py-16 relative overflow-hidden">
       <div
         className="w-full max-w-6xl flex items-center overflow-hidden"
         ref={scrollRef}

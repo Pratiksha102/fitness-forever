@@ -15,7 +15,7 @@ export default function Plans() {
   ];
 
   return (
-    <section className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-8 py-16">
+    <section className=" bg-black text-white flex flex-col items-center justify-center p-8 py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
         {plans.map((plan) => (
           <div
