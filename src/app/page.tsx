@@ -7,6 +7,7 @@ import About from "@/components/About";
 import Plans from "@/components/Plans";
 import ClientReviews from "@/components/ClientReviews";
 import WorkoutVideo from "@/components/WorkoutVideo";
+import ClientBanner from "@/components/ClientBanner";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Plans />
         <ClientReviews />
         <WorkoutVideo/>
+        <ClientBanner/>
       </section>
     </div>
   );
