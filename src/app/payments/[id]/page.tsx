@@ -20,28 +20,28 @@ export default function PaymentsPage() {
       return;
     }
 
-    const options = {
-      key: "RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
-      amount: 1000 * 100, // Amount in paise (₹1000)
-      currency: "INR",
-      name: "Fitness Forever",
-      description: "Payment for Fitness Plan",
-      image: "/logo.png", // Replace with your logo
-      handler: function (response: any) {
-        alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
-        router.push("/success"); // Redirect on success
-      },
-      prefill: {
-        name: session?.user?.name || "User",
-        email: session?.user?.email || "user@example.com",
-      },
-      theme: {
-        color: "#facc15", // Yellow theme
-      },
-    };
+    // const options = {
+    //   key: "RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+    //   amount: 1000 * 100, // Amount in paise (₹1000)
+    //   currency: "INR",
+    //   name: "Fitness Forever",
+    //   description: "Payment for Fitness Plan",
+    //   image: "/logo.png", // Replace with your logo
+    //   handler: function (response: any) {
+    //     alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+    //     router.push("/success"); // Redirect on success
+    //   },
+    //   prefill: {
+    //     name: session?.user?.name || "User",
+    //     email: session?.user?.email || "user@example.com",
+    //   },
+    //   theme: {
+    //     color: "#facc15", // Yellow theme
+    //   },
+    // };
 
-    const razor = new (window as any).Razorpay(options);
-    razor.open();
+    // const razor = new (window as any).Razorpay(options);
+    // razor.open();
   };
 
   return (
